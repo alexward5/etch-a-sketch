@@ -1,0 +1,68 @@
+/***************** global *****************/
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: white;
+}
+
+.wrapper {
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/***************** header *****************/
+
+header {
+	text-align: center;
+	background: #ccc;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+}
+
+/***************** buttons *****************/
+
+#buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+#buttons button {
+	width: 90px;
+	margin: 0 4px;
+}
+
+/***************** box container *****************/
+
+#boxes {
+	background-color: lightblue;
+	height: 400px;
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+	border: 10px solid blue;
+}
+
+#boxes div {
+	margin: 0;
+	padding: 0;
+}
+
+/***************** boxes *****************/
+
+.box {
+	background-color: white;
+	/*border: 2px solid black;*/
+	float: left;
+	width: 1px; 
+	height: 1px;
+}

@@ -63,11 +63,69 @@
 		//grid size button
 		function setSize() {
 			let boxesContainer = document.querySelector('#boxes');
+			let boxes = document.querySelectorAll('.box')
+
+			let numBoxes = prompt("enter the number of boxes");
+			if (numBoxes > 400) {
+				numBoxes = 400;
+			}
 			
+			let boxWidth = Math.floor(400 / numBoxes);
+			let widthStr = boxWidth + "px";
+			let boxesWidth = numBoxes * boxWidth;
+			let boxesWidthStr = boxesWidth + "px";
+
+			//create proper sized container
+			boxes.forEach(box => box.parentNode.removeChild(box));
+			boxesContainer.style.width = boxesWidthStr;
+			boxesContainer.style.height = boxesWidthStr;
+
+			//create proper number of boxes
+			for(i=0; i<numBoxes**2; i++) {
+				let div = document.createElement("div");
+				div.classList.add("box");
+				boxesContainer.appendChild(div);
+			}
+			//set size of boxes
+			let boxesNew = document.querySelectorAll('.box');
+			boxesNew.forEach(box => box.style.height = widthStr);
+			boxesNew.forEach(box => box.style.width = widthStr);
+
+			//add event listener to change color on mouseover
+			boxesNew.forEach(box => box.onmouseover = function() {
+				this.style.backgroundColor = "black";
+			});
+
 		}
 
 		let sizeButton = document.querySelector("#set-size");
 		sizeButton.addEventListener('click', setSize);
+
+		//rainbow button
+		function setRainbow() {
+			let boxes = document.querySelectorAll('.box');
+
+			boxesNew.forEach(box => box.onmouseover = function() {
+				randRed = Math.floor((Math.random() * 255) + 1);
+				randGreen = Math.floor((Math.random() * 255) + 1);
+				randBlue = Math.floor((Math.random() * 255) + 1);
+				this.style.backgroundColor = 'rgb(' + randRed + ',' + randGreen + ',' + randBlue + ')';
+			});
+		}
+
+		let rainbowButton = document.querySelector('#rainbow');
+		rainbowButton.addEventListener('click', setRainbow);
+
+		//normal button
+		function setNormal() {
+			let boxes = document.querySelectorAll('.box');
+			boxesNew.forEach(box => box.onmouseover = function() {
+				this.style.backgroundColor = 'black';
+			})
+		}
+
+		let normalButton = document.querySelector('#normal');
+		normalButton.addEventListener('click', setNormal);
 	</script>
 </body>
 </html>
